@@ -11,8 +11,7 @@ from typing import Literal
 from Crypto.Hash import HMAC, SHA3_224, SHA3_256, SHA3_384, SHA3_512
 
 # ------------------------------------------------------------
-#  Бібліотечні функції – їх легко юніт-тестувати
-# ------------------------------------------------------------
+
 _DIGEST_MAP: dict[int, object] = {
     224: SHA3_224,
     256: SHA3_256,
@@ -36,10 +35,8 @@ def verify_mac(key: bytes, msg: bytes, mac: bytes, bits: int = 256) -> bool:
     except ValueError:
         return False
 
-
-# ------------------------------------------------------------
 #  CLI-інтерфейс
-# ------------------------------------------------------------
+
 def _parse_args(argv: list[str]) -> argparse.Namespace:
     p = argparse.ArgumentParser(
         prog="hmac_sha3",
@@ -96,10 +93,9 @@ def _main(argv: list[str]) -> None:
 
     elif args.cmd == "verify":
         msg = _read_msg(args.infile)
-        # тег може бути у файлі
         if pathlib.Path(args.tag).is_file():
             tag_str = pathlib.Path(args.tag).read_text().strip()
-            tag_bytes = _decode_data(tag_str)      # ← декодуємо hex/base64
+            tag_bytes = _decode_data(tag_str)     
         else:
             tag_bytes = _decode_data(args.tag)
         ok = verify_mac(key, msg, tag_bytes, args.digest)

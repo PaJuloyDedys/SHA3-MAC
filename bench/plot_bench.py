@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt, csv, pathlib
 
-BASE = pathlib.Path(__file__).parent        # ← директорія bench/
+BASE = pathlib.Path(__file__).parent        
 
-def read(name):                             # name = "bench_sha3_256.csv"
+def read(name):                             
     with (BASE / name).open() as f:
         return list(csv.reader(f, quoting=1))
 

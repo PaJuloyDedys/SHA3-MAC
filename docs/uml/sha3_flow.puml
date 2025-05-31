@@ -1,0 +1,19 @@
+@startuml
+skinparam monochrome true
+start
+:Зчитати ключ, digest\nрозмір, режим (gen/verify);
+:Зчитати повідомлення;
+if (cmd = gen?) then (так)
+  :MAC = HMAC-SHA3(key,\n message, bits);
+  :вивести MAC у hex / base64;
+  stop
+else (verify)
+  :декодувати наданий тег;
+  if (MAC == tag?) then (OK)
+    :print "OK";
+  else
+    :print "FAIL";
+  endif
+  stop
+endif
+@enduml

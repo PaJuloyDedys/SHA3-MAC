@@ -3,7 +3,6 @@ import os, secrets, pathlib, sys
 sys.path.append(str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 import hmac_sha3
 
-# бере еталон прямо з PyCryptodome
 from Crypto.Hash import HMAC, SHA3_256, SHA3_384
 
 
@@ -27,5 +26,5 @@ def test_long_msg():
 def test_digest_384():
     key = secrets.token_bytes(48)
     msg = os.urandom(57)
-    ref = HMAC.new(key, msg, SHA3_384).digest()    # ← SHA3_384, без slice
+    ref = HMAC.new(key, msg, SHA3_384).digest() 
     assert hmac_sha3.compute_mac(key, msg, 384) == ref

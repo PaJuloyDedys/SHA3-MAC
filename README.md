@@ -1,5 +1,5 @@
 # SHA3-MAC – coursework project  
-[![CI](https://github.com/PaJuloyDedys/SHA3-MAC/actions/workflows/ci.yml/badge.svg)](https://github.com/PaJuloyDedys/SHA3-MAC/actions)
+[![CI](https://github.com/PaJuloyDedys/SHA3-MAC/actions/workflows/ci.yml/badge.svg)]
 
 CLI-утиліта для **генерації та перевірки HMAC-SHA-3**  
 (підтримуються теги 224/256/384/512 біт, а також бенчмарки й автоматичні тести).

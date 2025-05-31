@@ -1,0 +1,3 @@
+pycryptodome
+pytest
+matplotlib>=3.8

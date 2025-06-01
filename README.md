@@ -10,4 +10,4 @@ git clone https://github.com/PaJuloyDedys/SHA3-MAC.git
 cd SHA3-MAC
 python -m venv venv && source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-pip install -e ./src          # editable install для короткої команди `python -m hmac_sha3`
+pip install -e       # editable install для короткої команди `python -m hmac_sha3`
